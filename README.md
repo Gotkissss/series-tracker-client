@@ -39,6 +39,12 @@ npx serve .
 - Exportar a CSV generado desde JavaScript puro con Blob
 - Diseño visual de calidad con tema oscuro morado
 
+## Reflexión 
+Trabajar con JavaScript vanilla fue más complicado de lo que esperaba, sobre todo si lo comparo con usar un framework. Tener que manejar el estado, el DOM y las llamadas a la API por mi cuenta me ayudó a entender mejor qué está pasando en cada momento.
+Separar el código en tres archivos (api.js, ui.js y app.js) hizo que todo fuera más ordenado y fácil de mantener.
+Lo que más aprendí fue sobre CORS. Hay que entender por qué el navegador bloquea cosas al venir de ciertos orígenes. 
+Para proyectos pequeños sí volvería a usar fetch() así, pero si el proyecto crece, probablemente optaría por un framework.
 
 ## Screenshot
+<img width="1866" height="912" alt="image" src="https://github.com/user-attachments/assets/acc9eabb-1161-4fab-8abb-3c92ec1f4a26" />
 
