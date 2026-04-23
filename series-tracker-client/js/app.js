@@ -39,11 +39,11 @@ async function handleFormSubmit(e) {
         let savedId = id;
         if (id) {
             await api.updateSeries(id, data);
-            ui.showToast('Serie actualizada ✅');
+            ui.showToast('Serie actualizada');
         } else {
             const created = await api.createSeries(data);
             savedId = created.id;
-            ui.showToast('Serie creada ✅');
+            ui.showToast('Serie creada');
         }
 
         // Subir imagen si se seleccionó una
@@ -63,7 +63,7 @@ async function handleDelete(id) {
     if (!confirm('¿Eliminar esta serie?')) return;
     try {
         await api.deleteSeries(id);
-        ui.showToast('Serie eliminada 🗑️');
+        ui.showToast('Serie eliminada');
         loadSeries();
     } catch (e) {
         ui.showToast(e.message, 'error');
@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('btn-close-modal').addEventListener('click', ui.closeModal);
+    document.getElementById('btn-cancel').addEventListener('click', ui.closeModal);
     document.getElementById('modal').addEventListener('click', (e) => {
         if (e.target.id === 'modal') ui.closeModal();
     });
@@ -128,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const series = await api.fetchSeries({ limit: 1000 });
             api.exportToCSV(series);
-            ui.showToast('CSV descargado ✅');
+            ui.showToast('CSV descargado');
         } catch (e) {
             ui.showToast(e.message, 'error');
         }

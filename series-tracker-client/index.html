@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo">SERIES<span>TRACKER</span></div>
+        <div class="nav-actions">
+            <input type="text" id="search-input" class="search-input" placeholder="Buscar serie...">
+            <select id="sort-select" class="sort-select">
+                <option value="created_at-desc">Más recientes</option>
+                <option value="created_at-asc">Más antiguos</option>
+                <option value="title-asc">A → Z</option>
+                <option value="title-desc">Z → A</option>
+                <option value="rating-desc">Mejor rating</option>
+                <option value="episodes-desc">Más episodios</option>
+            </select>
+            <button id="btn-export-csv" class="btn-secondary">⬇ CSV</button>
+            <button id="btn-new" class="btn-primary">+ Nueva Serie</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-content">
+            <p class="hero-sub">Tu colección</p>
+            <h1 class="hero-title">TODO LO QUE<br><span>ESTÁS VIENDO</span></h1>
+        </div>
+        <div class="hero-glow"></div>
+    </header>
+
+    <!-- GRID -->
+    <main class="main-content">
+        <div id="series-grid" class="series-grid"></div>
+
+        <div class="pagination">
+            <button id="btn-prev" class="btn-page">Anterior</button>
+            <button id="btn-next" class="btn-page">Siguiente</button>
+        </div>
+    </main>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="modal-title">Nueva Serie</h2>
+                <button id="btn-close-modal" class="btn-close">✕</button>
+            </div>
+            <form id="series-form" class="series-form">
+                <input type="hidden" id="form-id">
+
+                <div class="form-group">
+                    <label>Título *</label>
+                    <input type="text" id="form-title" required placeholder="Ej: Breaking Bad">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Género</label>
+                        <input type="text" id="form-genre" placeholder="Drama, Comedia...">
+                    </div>
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <select id="form-status">
+                            <option value="">Sin estado</option>
+                            <option value="Viendo">Viendo</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Finalizada">Finalizada</option>
+                            <option value="Abandonada">Abandonada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Episodios</label>
+                        <input type="number" id="form-episodes" min="0" placeholder="62">
+                    </div>
+                    <div class="form-group">
+                        <label>Rating (0–10)</label>
+                        <input type="number" id="form-rating" min="0" max="10" step="0.1" placeholder="9.5">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Imagen (JPG/PNG, max 1MB)</label>
+                    <input type="file" id="form-image" accept="image/jpeg,image/png,image/webp">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="btn-cancel" class="btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn-primary">Guardar Serie</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

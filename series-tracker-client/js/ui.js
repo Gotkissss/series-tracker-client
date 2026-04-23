@@ -18,8 +18,8 @@ export function renderCards(series) {
                     : `<div class="card-placeholder"><span>${s.title[0]}</span></div>`
                 }
                 <div class="card-overlay">
-                    <button class="btn-edit" data-id="${s.id}">✏️ Editar</button>
-                    <button class="btn-delete" data-id="${s.id}">🗑️ Eliminar</button>
+                    <button class="btn-edit" data-id="${s.id}">Editar</button>
+                    <button class="btn-delete" data-id="${s.id}">Eliminar</button>
                 </div>
             </div>
             <div class="card-info">
@@ -29,8 +29,8 @@ export function renderCards(series) {
                     <span class="badge status ${s.status === 'Finalizada' ? 'ended' : 'ongoing'}">${s.status || 'Sin estado'}</span>
                 </div>
                 <div class="card-stats">
-                    <span>⭐ ${s.rating || '—'}</span>
-                    <span>📺 ${s.episodes || '—'} eps</span>
+                    <span>${s.rating || '—'}</span>
+                    <span>${s.episodes || '—'} eps</span>
                 </div>
             </div>
         `;
